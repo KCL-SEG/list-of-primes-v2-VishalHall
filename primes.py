@@ -4,19 +4,16 @@
 def primes(number_of_primes):
     if number_of_primes <= 0:
         raise ValueError("number_of_primes must be positive")
-    list = []
-    count = 2
-    while True:
-        if len(list) == number_of_primes:
-            break
-        
+    primeNumbers = []
+    currNum = 2
+    while len(primeNumbers) < number_of_primes:
         isPrime = True # Assume number is prime
-        for i in range(2, count):
-            if count % i == 0:
+        for i in range(2, currNum):
+            if currNum % i == 0:
                 isPrime = False
         
         if isPrime:
-            list += [count]
-        count += 1
+            primeNumbers += [currNum]
+        currNum += 1
 
-    return list
+    return primeNumbers
